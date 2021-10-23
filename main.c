@@ -1,11 +1,21 @@
 #include <stddef.h>
 #include <stdbool.h>
 #include <stdint.h>
-#include <crc.h>
-#include <rom.h>
-#include <rom_map.h>
-#include <sysctl.h>
-#include <systick.h>
+
+#include <inc/hw_memmap.h>
+
+#include <driverlib/crc.h>
+#include <driverlib/rom.h>
+#include <driverlib/rom_map.h>
+#include <driverlib/pin_map.h>
+#include <driverlib/sysctl.h>
+#include <driverlib/systick.h>
+#include <driverlib/gpio.h>
+#include <driverlib/uart.h>
+#include <driverlib/watchdog.h>
+
+#include "buttons.h"
+#include "rgb.h"
 
 #define GET_DEVICE_REQUEST 0x74
 #define GET_DEVICE_RESPONSE 0x75
@@ -18,17 +28,17 @@ static uint8_t g_defaultDCSD[]    = { 0x20, 0x00, 0x00, 0x00, 0x00, 0x00 };
 
 static uint8_t* g_currentDevice = NULL;
 
-void SendWake() {
+void SendWake(void) {
 
 }
 
 
-void DoResetCommand() {
+void DoResetCommand(void) {
     g_currentDevice = g_deviceReset;
     SendWake();
 }
 
-void DoDFUCommand() {
+void DoDFUCommand(void) {
     g_currentDevice = g_deviceEnterDFU;
     SendWake();
 }
@@ -44,15 +54,7 @@ void AppButtonHandler(void)
     //
     // Switch statement to adjust the color wheel position based on buttons
     //
-    switch(g_sAppState.ui32Buttons & ALL_BUTTONS)
-    {
-    case LEFT_BUTTON:
-        DoResetCommand();
-        break;
-    case RIGHT_BUTTON:
-        DoDFUCommand();
-        break;
-    }
+
 }
 
 //*****************************************************************************
@@ -60,8 +62,7 @@ void AppButtonHandler(void)
 // Configure the UART and its pins.  This must be called before UARTprintf().
 //
 //*****************************************************************************
-void
-ConfigureUART(void)
+void ConfigureUART(void)
 {
     //
     // Enable the GPIO Peripheral used by the UART.
@@ -92,7 +93,27 @@ ConfigureUART(void)
 }
 
 
-uint8_t CalculateCRC(uint8_t* data, uint8_t length) {
+uint8_t CalculateCRC(uint8_t* data, uint8_t length)
+{
+    uint8_t bit = 0;
+    uint8_t crc = 0;
+    uint8_t byteCtr;
+
+    for (byteCtr = 0; byteCtr < length; ++byteCtr)
+    {
+        crc ^= (data[byteCtr]);
+
+        for (bit = 8; bit > 0; --bit)
+        {
+            if (crc & 0x80) {
+                crc = (crc << 1) ^ 0x31;
+            }
+            else {
+                crc = (crc << 1);
+            }
+        }
+    }
+
     return 0;
 }
 

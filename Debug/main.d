@@ -13,11 +13,18 @@ main.obj: /Applications/ti/ccs1100/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/incl
 main.obj: /Applications/ti/ccs1100/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include/machine/_types.h
 main.obj: /Applications/ti/ccs1100/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include/machine/_stdint.h
 main.obj: /Applications/ti/ccs1100/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include/sys/_stdint.h
+main.obj: /Applications/ti/ccs1100/ccs/SW-TM4C-2.2.0.295/inc/hw_memmap.h
 main.obj: /Applications/ti/ccs1100/ccs/SW-TM4C-2.2.0.295/driverlib/crc.h
 main.obj: /Applications/ti/ccs1100/ccs/SW-TM4C-2.2.0.295/driverlib/rom.h
 main.obj: /Applications/ti/ccs1100/ccs/SW-TM4C-2.2.0.295/driverlib/rom_map.h
+main.obj: /Applications/ti/ccs1100/ccs/SW-TM4C-2.2.0.295/driverlib/pin_map.h
 main.obj: /Applications/ti/ccs1100/ccs/SW-TM4C-2.2.0.295/driverlib/sysctl.h
 main.obj: /Applications/ti/ccs1100/ccs/SW-TM4C-2.2.0.295/driverlib/systick.h
+main.obj: /Applications/ti/ccs1100/ccs/SW-TM4C-2.2.0.295/driverlib/gpio.h
+main.obj: /Applications/ti/ccs1100/ccs/SW-TM4C-2.2.0.295/driverlib/uart.h
+main.obj: /Applications/ti/ccs1100/ccs/SW-TM4C-2.2.0.295/driverlib/watchdog.h
+main.obj: ../buttons.h
+main.obj: ../rgb.h
 
 ../main.c:
 
@@ -45,13 +52,27 @@ main.obj: /Applications/ti/ccs1100/ccs/SW-TM4C-2.2.0.295/driverlib/systick.h
 
 /Applications/ti/ccs1100/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include/sys/_stdint.h:
 
+/Applications/ti/ccs1100/ccs/SW-TM4C-2.2.0.295/inc/hw_memmap.h:
+
 /Applications/ti/ccs1100/ccs/SW-TM4C-2.2.0.295/driverlib/crc.h:
 
 /Applications/ti/ccs1100/ccs/SW-TM4C-2.2.0.295/driverlib/rom.h:
 
 /Applications/ti/ccs1100/ccs/SW-TM4C-2.2.0.295/driverlib/rom_map.h:
 
+/Applications/ti/ccs1100/ccs/SW-TM4C-2.2.0.295/driverlib/pin_map.h:
+
 /Applications/ti/ccs1100/ccs/SW-TM4C-2.2.0.295/driverlib/sysctl.h:
 
 /Applications/ti/ccs1100/ccs/SW-TM4C-2.2.0.295/driverlib/systick.h:
+
+/Applications/ti/ccs1100/ccs/SW-TM4C-2.2.0.295/driverlib/gpio.h:
+
+/Applications/ti/ccs1100/ccs/SW-TM4C-2.2.0.295/driverlib/uart.h:
+
+/Applications/ti/ccs1100/ccs/SW-TM4C-2.2.0.295/driverlib/watchdog.h:
+
+../buttons.h:
+
+../rgb.h:
 
